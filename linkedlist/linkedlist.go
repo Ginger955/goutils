@@ -5,7 +5,10 @@ type LinkedList interface {
 	InsertAt(*Node, int)
 
 	//Reverse()
-	//Search()
+
+	Search(string) *Node
+	SearchAt(int) *Node
+
 	Length() int
 	//Delete(key any)
 	//DeleteAt(int)
@@ -51,6 +54,25 @@ func (sll *SinglyLinkedList) InsertAt(node *Node, index int) {
 	}
 
 	sll.size++
+}
+
+func (sll *SinglyLinkedList) Search(id string) *Node {
+	v := sll.head
+	for v != nil {
+
+	}
+	return nil
+}
+
+func (sll *SinglyLinkedList) SearchAt(index int) *Node {
+	v := sll.head
+	for i := 0; i <= index; i++ {
+		if v.next != nil {
+			v = v.next
+		}
+	}
+
+	return v
 }
 
 func (sll *SinglyLinkedList) Length() int {
