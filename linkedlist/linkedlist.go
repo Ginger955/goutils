@@ -1,17 +1,20 @@
 package linkedlist
 
+import "strings"
+
 type LinkedList interface {
 	Insert(*Node)
 	InsertAt(*Node, int)
 
-	//Reverse()
+	Reverse()
 
-	Search(string) *Node
+	Search(id string) *Node
 	SearchAt(int) *Node
 
 	Length() int
-	//Delete(key any)
-	//DeleteAt(int)
+
+	Delete(id string)
+	DeleteAt(int)
 }
 
 type SinglyLinkedList struct {
@@ -56,15 +59,32 @@ func (sll *SinglyLinkedList) InsertAt(node *Node, index int) {
 	sll.size++
 }
 
+func (sll *SinglyLinkedList) Reverse() {
+
+}
+
 func (sll *SinglyLinkedList) Search(id string) *Node {
+	if sll.head == nil {
+		return nil
+	}
+
 	v := sll.head
 	for v != nil {
+		if strings.Compare(v.id, id) == 0 {
+			return v
+		}
 
+		v = v.next
 	}
+
 	return nil
 }
 
 func (sll *SinglyLinkedList) SearchAt(index int) *Node {
+	if sll.head == nil {
+		return nil
+	}
+
 	v := sll.head
 	for i := 0; i <= index; i++ {
 		if v.next != nil {
@@ -77,4 +97,10 @@ func (sll *SinglyLinkedList) SearchAt(index int) *Node {
 
 func (sll *SinglyLinkedList) Length() int {
 	return sll.size
+}
+
+func (sll *SinglyLinkedList) Delete(id string) {
+}
+
+func (sll *SinglyLinkedList) DeleteAt(index int) {
 }
