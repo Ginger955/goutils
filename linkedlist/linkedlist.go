@@ -58,7 +58,21 @@ func (sll *SinglyLinkedList[T]) InsertAt(node *Node[T], index int) {
 }
 
 func (sll *SinglyLinkedList[T]) Reverse() {
+	if sll.head == nil {
+		return
+	}
 
+	cpy := NewLinkedList[T]()
+
+	v := sll.head
+
+	for v != nil {
+		n := NewNode(v.data.(T), v.id)
+		cpy.Insert(n)
+		v = v.next
+	}
+
+	sll.head = cpy.head
 }
 
 func (sll *SinglyLinkedList[T]) Search(id string) *Node[T] {
@@ -84,7 +98,7 @@ func (sll *SinglyLinkedList[T]) SearchAt(index int) *Node[T] {
 	}
 
 	v := sll.head
-	for i := 0; i <= index; i++ {
+	for i := 0; i < index; i++ {
 		if v.next != nil {
 			v = v.next
 		}

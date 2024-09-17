@@ -3,7 +3,7 @@ package linkedlist
 type Node[T any] struct {
 	id   string
 	next *Node[T]
-	data any
+	data T
 }
 
 func NewNode[T any](data T, id ...string) *Node[T] {
