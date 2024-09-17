@@ -1,7 +1,5 @@
 package linkedlist
 
-import "strings"
-
 type LinkedList interface {
 	Insert(*Node)
 	InsertAt(*Node, int)
@@ -70,7 +68,7 @@ func (sll *SinglyLinkedList) Search(id string) *Node {
 
 	v := sll.head
 	for v != nil {
-		if strings.Compare(v.id, id) == 0 {
+		if v.id == id {
 			return v
 		}
 
@@ -100,6 +98,26 @@ func (sll *SinglyLinkedList) Length() int {
 }
 
 func (sll *SinglyLinkedList) Delete(id string) {
+	if sll.head == nil {
+		return
+	}
+
+	v := sll.head
+	prev := v
+	for v != nil {
+		if v.id == id {
+			if v.next != nil {
+				prev.next = v.next
+			} else {
+				prev.next = nil
+			}
+
+			sll.size--
+		}
+
+		prev = v
+		v = v.next
+	}
 }
 
 func (sll *SinglyLinkedList) DeleteAt(index int) {
