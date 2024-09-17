@@ -7,7 +7,7 @@ import (
 
 func TestLinkedList_Insert(t *testing.T) {
 	t.Run("INSERT", func(t *testing.T) {
-		ll := NewLinkedList()
+		ll := NewLinkedList[int]()
 		ll.Insert(NewNode(1))
 		ll.Insert(NewNode(2, "1"))
 		ll.Insert(NewNode(3))
@@ -16,7 +16,7 @@ func TestLinkedList_Insert(t *testing.T) {
 	})
 
 	t.Run("INSERT AT", func(t *testing.T) {
-		ll := NewLinkedList()
+		ll := NewLinkedList[int]()
 		ll.InsertAt(NewNode(1), 0)
 		ll.InsertAt(NewNode(2, "1"), 1)
 

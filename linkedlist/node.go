@@ -1,13 +1,13 @@
 package linkedlist
 
-type Node struct {
+type Node[T any] struct {
 	id   string
-	next *Node
+	next *Node[T]
 	data any
 }
 
-func NewNode(data any, id ...string) *Node {
-	node := &Node{
+func NewNode[T any](data T, id ...string) *Node[T] {
+	node := &Node[T]{
 		id:   "",
 		next: nil,
 		data: data,

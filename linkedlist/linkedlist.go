@@ -1,13 +1,13 @@
 package linkedlist
 
-type LinkedList interface {
-	Insert(*Node)
-	InsertAt(*Node, int)
+type LinkedList[T any] interface {
+	Insert(*Node[T])
+	InsertAt(*Node[T], int)
 
 	Reverse()
 
-	Search(id string) *Node
-	SearchAt(int) *Node
+	Search(id string) *Node[T]
+	SearchAt(int) *Node[T]
 
 	Length() int
 
@@ -15,13 +15,13 @@ type LinkedList interface {
 	DeleteAt(int)
 }
 
-type SinglyLinkedList struct {
-	head *Node
+type SinglyLinkedList[T any] struct {
+	head *Node[T]
 	size int
 }
 
-func NewLinkedList() *SinglyLinkedList {
-	return &SinglyLinkedList{
+func NewLinkedList[T any]() *SinglyLinkedList[T] {
+	return &SinglyLinkedList[T]{
 		head: nil,
 		size: 0,
 	}
@@ -29,7 +29,7 @@ func NewLinkedList() *SinglyLinkedList {
 
 // Insert adds the node at the beginning of the list.
 // The passed Node becomes the head of the list.
-func (sll *SinglyLinkedList) Insert(node *Node) {
+func (sll *SinglyLinkedList[T]) Insert(node *Node[T]) {
 	if sll.head == nil {
 		sll.head = node
 	} else {
@@ -41,7 +41,7 @@ func (sll *SinglyLinkedList) Insert(node *Node) {
 	sll.size++
 }
 
-func (sll *SinglyLinkedList) InsertAt(node *Node, index int) {
+func (sll *SinglyLinkedList[T]) InsertAt(node *Node[T], index int) {
 	if sll.head == nil {
 		sll.head = node
 	} else {
@@ -57,11 +57,11 @@ func (sll *SinglyLinkedList) InsertAt(node *Node, index int) {
 	sll.size++
 }
 
-func (sll *SinglyLinkedList) Reverse() {
+func (sll *SinglyLinkedList[T]) Reverse() {
 
 }
 
-func (sll *SinglyLinkedList) Search(id string) *Node {
+func (sll *SinglyLinkedList[T]) Search(id string) *Node[T] {
 	if sll.head == nil {
 		return nil
 	}
@@ -78,7 +78,7 @@ func (sll *SinglyLinkedList) Search(id string) *Node {
 	return nil
 }
 
-func (sll *SinglyLinkedList) SearchAt(index int) *Node {
+func (sll *SinglyLinkedList[T]) SearchAt(index int) *Node[T] {
 	if sll.head == nil {
 		return nil
 	}
@@ -93,11 +93,11 @@ func (sll *SinglyLinkedList) SearchAt(index int) *Node {
 	return v
 }
 
-func (sll *SinglyLinkedList) Length() int {
+func (sll *SinglyLinkedList[T]) Length() int {
 	return sll.size
 }
 
-func (sll *SinglyLinkedList) Delete(id string) {
+func (sll *SinglyLinkedList[T]) Delete(id string) {
 	if sll.head == nil {
 		return
 	}
@@ -120,5 +120,5 @@ func (sll *SinglyLinkedList) Delete(id string) {
 	}
 }
 
-func (sll *SinglyLinkedList) DeleteAt(index int) {
+func (sll *SinglyLinkedList[T]) DeleteAt(index int) {
 }
