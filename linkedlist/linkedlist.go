@@ -67,7 +67,7 @@ func (sll *SinglyLinkedList[T]) Reverse() {
 	v := sll.head
 
 	for v != nil {
-		n := NewNode(v.data.(T), v.id)
+		n := NewNode(v.data, v.id)
 		cpy.Insert(n)
 		v = v.next
 	}
