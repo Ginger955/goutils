@@ -1,1 +1,1 @@
-## This project is meant for learning, but also to create some useful tools.
+## This repo was created because I was bored one day and decided to write some code that I thought could be useful in the future to myself. If you also happened to find some of these functionalities useful, good for you, I'm glad.

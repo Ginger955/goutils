@@ -134,4 +134,5 @@ func (sll *SinglyLinkedList[T]) Delete(id string) {
 }
 
 func (sll *SinglyLinkedList[T]) DeleteAt(index int) {
+
 }
